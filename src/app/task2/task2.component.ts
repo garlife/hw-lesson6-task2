@@ -58,23 +58,7 @@ export class Task2Component implements OnInit {
     (<FormArray>this.reactiveForm.controls['phones']).removeAt(this.reactiveForm.controls['phones']['controls'].index);
   }
 
-  addRaw(){
-    (<FormArray>this.reactiveForm.controls['num1']).push(new FormControl('3', [
-      Validators.required,
-      Validators.min(1),
-      Validators.max(12),
-    ]));
-    (<FormArray>this.reactiveForm.controls['date1']).push(new FormControl('2021-03-03', Validators.required));
-    (<FormArray>this.reactiveForm.controls['theme1']).push(new FormControl('Урок №3', [
-        Validators.required,
-        this.myTheme1Validator,
-      ]));
-      (<FormArray>this.reactiveForm.controls['hw1']).push(new FormControl('Домашка №3', [
-        Validators.required,
-        this.myHw1Validator,
-      ]));
-      (<FormArray>this.reactiveForm.controls['notice1']).push(new FormControl('FormGroup'))
-  }
+  
 
   myHw1Validator(control: FormControl): any {
     if (control.value === 'нет') {

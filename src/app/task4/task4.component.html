@@ -1,0 +1,83 @@
+<div>
+  <form [formGroup]="testTable">
+    <table>
+      <th style="width: 30px">
+        Пробная таблица оборачивания строк в formArray
+      </th>
+      <tr
+        formArrayName="tr1"
+        *ngFor="
+          let item of testTable.controls['tr1']['controls'];
+          let i = index
+        "
+      >
+        <td>
+          <input type="date" [value]="item.value[0]" />
+        </td>
+        <td>
+          <input  type="text" [value]="item.value[1]" />
+        </td>
+        <td>
+          <input  type="text" [value]="item.value[2]" />
+        </td>
+        <td>
+          <input  type="text" [value]="item.value[3]" />
+        </td>
+      </tr>
+    </table>
+    <button type="button" [disabled]="testTable.invalid" (click)="addRaw()">Добавить строку</button>
+    <button type="button" (click)="deleteRaw()">Удалить строку</button>
+  </form>
+</div>
+
+<!-- <div>
+  <form [formGroup]="newLessonForm" noValidate>
+    <table >
+      <th>Добавить урок</th>
+    
+          <tr>
+            <th>Дата урока</th>
+            <td><input type="date" formControlName="date"></td>
+          </tr>
+          <tr>
+            <th>Тема урока</th>
+            <td><input type="text" formControlName="theme"></td>
+          </tr>
+          <tr>
+            <th>Домашнее задание</th>
+            <td><input type="text" formControlName="homework"></td>
+          </tr>
+          <tr>
+            <th>Примечание</th>
+            <td><input type="text" formControlName="comment"></td>
+          </tr>
+          <button type="button" [disabled]="newLessonForm.invalid" (click)="addLesson()">Добавить</button>
+    </table>
+  </form>
+</div>
+<div>
+    <form [formGroup]="newStudentForm" noValidate>
+      <table >
+        <th>Добавить студента</th>
+       
+            <tr>
+              <th>ФИО студента</th>
+              <td><input type="text" formControlName="fio"></td>
+            </tr>
+            <button type="button" [disabled]="newStudentForm.invalid" (click)="addStudent()">Добавить</button>
+      </table>
+    </form>
+  </div> -->
+<!-- <div>
+    <form [formGroup]="lessonMarks">
+      <table >
+        <th>Журнал оценок</th>
+     
+            <tr>
+              <th>ФИО студента</th>
+              <td><input type="text" formControlName="fio"></td>
+            </tr>
+            <button type="button" [disabled]="newStudentForm.invalid" (click)="addStudent()">Добавить</button>
+      </table>
+    </form>
+  </div> -->
