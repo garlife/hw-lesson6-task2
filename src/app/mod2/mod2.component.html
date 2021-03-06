@@ -1,0 +1,65 @@
+<div>
+  <form [formGroup]="myReactiveForm" noValidate>
+    <table>
+      <th>Повторение - мать учения</th>
+      <!-- <tr>
+        <td *ngFor="let header of headers">
+          {{ titleer }}
+        </td>
+      </tr>
+      <tr style="font-weight: bold;">
+        <td>
+          <input type="text" formControlName="titleNum" />
+        </td>
+        <td>
+          <input type="text" formControlName="titleFio" />
+        </td>
+        <td>
+            <input type="date" formControlName="titleDate1" />
+        </td>
+        <td>
+            <input type="date" formControlName="titleDate2" />
+        </td>
+        <td>
+            <input type="date" formControlName="titleDate3" />
+        </td>
+        <td>
+            <input type="date" formControlName="titleDate4" />
+        </td>
+        <td>
+            <input type="date" formControlName="titleDate5" />
+        </td>
+        <td>
+            <input type="date" formControlName="titleDate6" />
+        </td>
+        <td>
+            <input type="text" formControlName="titleAvPoints" />
+        </td>
+        <td>
+            <input type="text" formControlName="titleAvRndPoints" />
+        </td>
+    </tr> -->
+    <tr>
+        <td>
+            <select formControlName="taskPoints" id="taskPoints">
+                <option *ngFor="let taskPoint of taskPoints; let i = index" [value]="taskPoints[i].id">
+                    {{taskPoints[i].value}}
+                </option>
+            </select>
+        </td>
+    </tr>
+    </table>
+    <button (click)="submit()">Сохранить</button>
+  </form>
+
+  <!-- <form [formGroup]="form" (ngSubmit)="submit()">
+    <label for="orders">Order</label>
+    <select formControlName="orders" id="orders">
+      <option *ngFor="let order of orders; let i = index" [value]="orders[i].id">
+        {{orders[i].name}}
+      </option>
+    </select>
+  
+    <button>submit</button>
+  </form>
+   -->

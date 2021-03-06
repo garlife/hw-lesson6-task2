@@ -1,0 +1,93 @@
+<div>
+  <form [formGroup]="reactiveForm" noValidate>
+    <table>
+      <th>Журнал оценок</th>
+      <tr>
+        <td
+          *ngFor="let column of columns"
+          [ngStyle]="{ 'font-weight': 'bold' }"
+        >
+          {{ column }}
+        </td>
+      </tr>
+      <tr>
+        <td>{{ num }}</td>
+        <td>{{ date | date: "dd.MM.yyyy" }}</td>
+        <td>{{ theme }}</td>
+        <td>{{ hw }}</td>
+        <td>{{ notice }}</td>
+      </tr>
+      <tr class="form-control">
+        <td>
+          <input type="number" formControlName="num1" />
+        </td>
+        <td>
+          <input type="date" formControlName="date1" />
+        </td>
+        <td>
+          <input formControlName="theme1" />
+        </td>
+        <td>
+          <input formControlName="hw1" />
+        </td>
+        <td>
+          <input formControlName="notice1" />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <span
+            *ngIf="
+              reactiveForm.controls['num1'].invalid &&
+              reactiveForm.controls['num1'].touched
+            "
+            >Введите число от 0 до 12</span
+          >
+        </td>
+        <td>
+          <span *ngIf="reactiveForm.controls['date1'].invalid"
+            >Укажите дату</span
+          >
+        </td>
+        <td>
+          <span *ngIf="reactiveForm.controls['theme1'].invalid"
+            >Укажите тему</span
+          >
+        </td>
+        <td>
+          <span *ngIf="reactiveForm.controls['hw1'].invalid"
+            >Укажите домашнее задание</span
+          >
+        </td>
+      </tr>
+      <div formArrayName="phones">
+        <tr
+          *ngFor="
+            let phone of reactiveForm.controls['phones']['controls'];
+            let i = index
+          "
+        >
+          <input formControlName="{{ i }}" />
+        </tr>
+      </div>
+      <tr>
+
+      </tr>
+    </table>
+    <button type="button" (click)="addPhone()">Добавить телефон</button>
+    <button type="button" (click)="deletePhone()">Удалить телефон</button>
+    <br />
+    <button type="button" (click)="addRaw()">Добавить строку</button>
+    <br>
+    <button type="button" (click)="submit()">Отправить</button>
+  </form>
+</div>
+<div></div>
+
+<!-- #toDo разобраться как вытаскивать данные из инпута -->
+<!-- <div>
+<input type="text" [value]="date">
+    {{ date }}
+    <br>
+    <button (click)="displayDate($event)">GetDate</button>
+</div> -->

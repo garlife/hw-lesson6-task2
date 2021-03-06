@@ -1,0 +1,38 @@
+<form [formGroup]="formReactive" noValidate>
+<table>
+ 
+    <tr>
+      <td>
+        <label>Name: </label>
+        <input type="text" formControlName="name" />
+      </td>
+      <td>
+      <label>Date: </label>
+      <input type="date" formControlName="date" />
+    </td>
+    <td>
+      <label>Age: </label>
+      <input type="number" formControlName="age" />
+      <span *ngIf="formReactive.controls['age'].invalid">Поле НЕвалидно!</span>
+    </td>
+    <td>
+      <div formArrayName="phones">
+        <input
+          *ngFor="
+            let phone of formReactive.controls['phones']['controls'];
+            let i = index
+          "
+          [formControlName]="i"
+        />
+      </div>
+    </td>
+    <td>
+      <br />
+      {{
+        formReactive.value | json
+      }}
+    </td>
+    </tr>
+
+</table>
+</form>
